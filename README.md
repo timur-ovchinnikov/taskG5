@@ -42,7 +42,7 @@ docker-compose up -d
 Проверьте:
 
 * Prometheus: [http://localhost:9090](http://localhost:9090)
-* Grafana: [http://localhost:3000](http://localhost)
+* Grafana: [http://localhost](http://localhost)
 
   * Логин: `admin`
   * Пароль: `admin`
