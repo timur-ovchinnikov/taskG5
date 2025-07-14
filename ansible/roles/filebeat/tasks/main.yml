@@ -1,0 +1,31 @@
+- name: Add Elastic APT key
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+
+- name: Add Elastic APT repository
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+    state: present
+    filename: elastic-7.x
+
+- name: Install Filebeat
+  apt:
+    name: filebeat
+    state: present
+    update_cache: yes
+
+- name: Copy Filebeat config
+  copy:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Enable and start Filebeat
+  systemd:
+    name: filebeat
+    enabled: true
+    state: restarted
+

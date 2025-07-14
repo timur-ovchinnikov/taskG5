@@ -1,0 +1,14 @@
+filebeat.inputs:
+  - type: container
+    enabled: true
+    paths:
+      - /var/lib/docker/containers/*/*.log
+    processors:
+      - add_docker_metadata: ~
+
+output.file:
+  path: "/var/log/test"
+  filename: "containers.log"
+  rotate_every_kb: 10000
+  number_of_files: 5
+
