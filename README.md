@@ -118,12 +118,6 @@ tail -f filebeat/output/containers.log
 
 ---
 
-##  Автоматизация (опционально)
-
-*Здесь можно добавить `scripts/deploy_all.sh`, если решишь писать*
-
----
-
 ##  Проверка
 
 На целевой Ubuntu 24.04:
